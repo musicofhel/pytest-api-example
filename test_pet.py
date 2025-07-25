@@ -2,6 +2,7 @@ from jsonschema import validate
 import pytest
 import schemas
 import api_helpers
+import app # import added
 from hamcrest import assert_that, contains_string, is_
 
 '''
@@ -10,6 +11,8 @@ TODO: Finish this test by...
 The purpose of this test is to validate the response matches the expected schema defined in schemas.py
 '''
 def test_pet_schema():
+    app.reset_pets_data() # resets data before test
+    
     test_endpoint = "/pets/1"
 
     response = api_helpers.get_api_data(test_endpoint)

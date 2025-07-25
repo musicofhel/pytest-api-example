@@ -165,6 +165,17 @@ class OrderUpdateResource(Resource):
 
 
         return {"message": "Order and pet status updated successfully"}
+    
+def reset_pets_data():
+    """Reset pets data - simple function"""
+    global pets, orders
+    pets = [
+        {'id': 0, 'name': 'snowball', 'type': 'cat', 'status': 'available'},
+        {'id': 1, 'name': 'ranger', 'type': 'dog', 'status': 'pending'},
+        {'id': 2, 'name': 'flippy', 'type': 'fish', 'status': 'available'}
+    ]
+    orders = {}
+
 
 if __name__ == '__main__':
     app.run(debug=True)
